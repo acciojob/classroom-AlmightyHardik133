@@ -3,57 +3,40 @@ package com.driver;
 import java.util.List;
 
 public class StudentService {
-	
-	private StudentRepository repository;
+    StudentRepository studentRepository=new StudentRepository();
+    public void addStudent(Student student) {
+        studentRepository.addStudent(student);
+    }
 
-	public void addStudent(Student student) {
-		repository.addStudent(student);
-		
-	}
+    public void addTeacher(Teacher teacher) {
+        studentRepository.addTeacher(teacher);
+    }
 
-	public void addTeacher(Teacher teacher) {
-		repository.addTeacher(teacher);
-		
-	}
+    public void addStudentTeacherPair(String student, String teacher) {
+        studentRepository.addStudentTeacherPair(student,teacher);
+    }
 
-	public void addStudentTeacherPair(String student, String teacher) {
-		// TODO Auto-generated method stub
-		repository.addStudentTeacherPair(student, teacher);
-		
-	}
+    public Student getStudentByName(String name) {
+        return studentRepository.getStudentByName(name);
+    }
 
-	public Student getStudentByName(String name) {
-		
-		return repository.getStudentByName(name);
-	}
+    public Teacher getTeacherByName(String name) {
+        return studentRepository.getTeacherByName(name);
+    }
 
-	public Teacher getTeacherByName(String name) {
+    public List<String> getStudentsByTeacherName(String teacher) {
+        return studentRepository.getStudentsByTeacherName(teacher);
+    }
 
-		return repository.getTeacherByName(name);
-	}
+    public List<String> getAllStudents() {
+        return studentRepository.getAllStudents();
+    }
 
-	public List<String> getStudentsByTeacherName(String teacher) {
-		// TODO Auto-generated method stub
-		return repository.getStudentsByTeacherName(teacher);
-	}
+    public void deleteTeacherByName(String teacher) {
+        studentRepository.deleteTeacherByName(teacher);
+    }
 
-	public List<String> getAllStudents() {
-		// TODO Auto-generated method stub
-		return repository.getAllStudents();
-	}
-
-	public void deleteTeacherByName(String teacher) {
-		repository.deleteTeacherByName(teacher);
-		
-	}
-
-	public void deleteAllTeachers() {
-		// TODO Auto-generated method stub
-		repository.deleteAllTeachers();
-		
-	}
-
-	
-	
-
+    public void deleteAllTeachers() {
+        studentRepository.deleteAllTeachers();
+    }
 }

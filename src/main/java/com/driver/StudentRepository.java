@@ -40,24 +40,22 @@ public class StudentRepository {
 	}
 	
 	public List<String> getStudentsByTeacherName(String teacher) {
-		List<String> getAllStudents = new ArrayList<String>();
-		
-		List<Student> students = new ArrayList<>();
-		Teacher teach = getTeacherByName(teacher);
-		students = teacherStudents.getOrDefault(teach, new ArrayList<Student>());
-		
-		for(Student stud : students) {
-			getAllStudents.add(stud.getName());
-		}
-		
-		return getAllStudents;
+		List<String> allStudentByTeacher = new ArrayList<>();
+        Teacher teacher1 = getTeacherByName(teacher);
+        List<Student> studentList = teacherStudents.getOrDefault(teacher1, new ArrayList<>());
+        for (Student student : studentList) {
+            allStudentByTeacher.add(student.getName());
+        }
+        return allStudentByTeacher;
 	}
 
 	public List<String> getAllStudents() {
 		// TODO Auto-generated method stub
-		List<String> allStudents = new ArrayList<>();
-		allStudents = listStudents.stream().map(Student::getName).toList();
-		return allStudents;
+		List<String> allStudent = new ArrayList<>();
+        for (Student student : listStudents) {
+            allStudent.add(student.getName());
+        }
+        return allStudent;
 	}
 
 	public void deleteTeacherByName(String teacher) {
